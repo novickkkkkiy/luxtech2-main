@@ -37,7 +37,7 @@
             <ul class="nav-links">
 
                 <li class="nav-item has-dropdown">
-                    <a href="#">Решения <i class="fas fa-chevron-down nav-chevron"></i></a>
+                    <a href="#">Решения <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-chevron lucide lucide-chevron-down relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a>
                     <ul class="nav-dropdown">
                         <li><a href="lightpage.html">Световые решения</a></li>
                         <li><a href="lightpage2.html">Управление зданием</a></li>
@@ -50,14 +50,14 @@
                 <li><a href="projects.html">Проекты</a></li>
             <li><a href="charity.html">Благотворительность</a></li>
             <li class="nav-item has-dropdown">
-                <a href="projects.html">Продукция<i class="fas fa-chevron-down nav-chevron"></i></a>
+                <a href="projects.html">Продукция<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-chevron lucide lucide-chevron-down relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a>
                     <ul class="nav-dropdown">
                         <li><a href="diodus.html">Бренд DIODUS</a></li>
                         <li><a href="luxbrand.html">Бренд LUXBRAND</a></li>
 </ul>
                 </li>
                 <li class="nav-item has-dropdown">
-                    <a href="#">Услуги <i class="fas fa-chevron-down nav-chevron"></i></a>
+                    <a href="#">Услуги <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-chevron lucide lucide-chevron-down relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a>
                     <ul class="nav-dropdown">
                         <li><a href="design.html">Проектирование</a></li>
                         <li><a href="supply.html">Поставка и логистика</a></li>
@@ -66,7 +66,7 @@
                     </ul>
                 </li>
                 <li class="nav-item has-dropdown">
-                    <a href="#">О нас <i class="fas fa-chevron-down nav-chevron"></i></a>
+                    <a href="#">О нас <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-chevron lucide lucide-chevron-down relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a>
                     <ul class="nav-dropdown">
                         <li><a href="about.html">О компании</a></li>
                         <li><a href="contacts.html">Контакты</a></li>
@@ -303,19 +303,51 @@
     <section class="about-partners">
         <div class="container">
             <span class="about-partners__tag" data-aos="fade-up">СТРАТЕГИЧЕСКИЕ ПАРТНЕРСТВА</span>
-            <h2 class="about-partners__title" data-aos="fade-up">Наши партнеры</h2>
-            <div class="about-partners__logos" data-aos="fade-up">
-                <div class="about-partners__logo" role="button" tabindex="0" data-partner="zeon">ZEON Lightning</div>
-                <div class="about-partners__logo" role="button" tabindex="0" data-partner="img">IMG-LIGHTING</div>
-                <div class="about-partners__logo" role="button" tabindex="0" data-partner="mdm">МДМ - ЛАЙТ</div>
-            </div>
-            <div class="about-partners-modal" id="partnersModal" aria-hidden="true">
-                <div class="about-partners-modal__backdrop" data-partner-close></div>
-                <div class="about-partners-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="partnersModalTitle">
-                    <button class="about-partners-modal__close" type="button" aria-label="Закрыть" data-partner-close>×</button>
-                    <h3 class="about-partners-modal__title" id="partnersModalTitle"></h3>
-                    <div class="about-partners-modal__content" id="partnersModalContent"></div>
-                </div>
+            <h2 class="about-partners__title" data-aos="fade-up">Наши ключевые партнёры</h2>
+            <p class="about-partners__lead" data-aos="fade-up">Мы работаем с ведущими производителями и дистрибьюторами световых решений, чтобы предлагать нашим клиентам лучшее оборудование на рынке.</p>
+
+            <div class="about-partners__cards" data-aos="fade-up">
+                <a class="about-partners-card about-partners-card--zeon" href="partner-zeon.html">
+                    <div class="about-partners-card__head">
+                        <div class="about-partners-card__mark">ZL</div>
+                        <h3>ZEON Lighting</h3>
+                    </div>
+                    <p class="about-partners-card__text">Европейский производитель профессиональных LED-систем. Архитектурное и коммерческое освещение класса Premium.</p>
+                    <div class="about-partners-card__chips">
+                        <span>Архитектурный свет</span>
+                        <span>LED</span>
+                        <span>Premium</span>
+                    </div>
+                    <div class="about-partners-card__cta">Подробнее о партнёре <span>→</span></div>
+                </a>
+
+                <a class="about-partners-card about-partners-card--img" href="partner-img-lighting.html">
+                    <div class="about-partners-card__head">
+                        <div class="about-partners-card__mark">IMG</div>
+                        <h3>IMG Lighting</h3>
+                    </div>
+                    <p class="about-partners-card__text">Международный лидер в сценическом и фасадном освещении. Медиафасады, динамические системы, управление светом.</p>
+                    <div class="about-partners-card__chips">
+                        <span>Медиафасады</span>
+                        <span>Сценический свет</span>
+                        <span>DMX</span>
+                    </div>
+                    <div class="about-partners-card__cta">Подробнее о партнёре <span>→</span></div>
+                </a>
+
+                <a class="about-partners-card about-partners-card--mdm" href="partner-mdm-light.html">
+                    <div class="about-partners-card__head">
+                        <div class="about-partners-card__mark">МДМ</div>
+                        <h3>МДМ-ЛАЙТ</h3>
+                    </div>
+                    <p class="about-partners-card__text">Крупнейший российский дистрибьютор светотехники. Склад 8 000+ позиций, поставка по всей России.</p>
+                    <div class="about-partners-card__chips">
+                        <span>Коммерческий свет</span>
+                        <span>Склад в РФ</span>
+                        <span>Госзакупки</span>
+                    </div>
+                    <div class="about-partners-card__cta">Подробнее о партнёре <span>→</span></div>
+                </a>
             </div>
 
             <div class="about-section__header about-section__header--spaced" data-aos="fade-up">

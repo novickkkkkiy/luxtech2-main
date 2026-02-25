@@ -34,7 +34,7 @@
 
                 <li class="nav-item has-dropdown">
 
-                    <a href="#">Решения <i class="fas fa-chevron-down nav-chevron"></i></a>
+                    <a href="#">Решения <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-chevron lucide lucide-chevron-down relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a>
                     <ul class="nav-dropdown">
                         <li><a href="pages/lightpage.html">Световые решения</a></li>
                         <li><a href="pages/lightpage2.html">Управление зданием</a></li>
@@ -47,14 +47,14 @@
                 <li><a href="pages/projects.html">Проекты</a></li>
                 <li><a href="pages/charity.html">Благотворительность</a></li>
                 <li class="nav-item has-dropdown">
-                    <a href="pages/projects.html">Продукция<i class="fas fa-chevron-down nav-chevron"></i></a>
+                    <a href="pages/projects.html">Продукция<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-chevron lucide lucide-chevron-down relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a>
                     <ul class="nav-dropdown">
                         <li><a href="pages/diodus.html">Бренд DIODUS</a></li>
                         <li><a href="pages/luxbrand.html">Бренд LUXBRAND</a></li>
 </ul>
                 </li>
                 <li class="nav-item has-dropdown">
-                    <a href="#">Услуги <i class="fas fa-chevron-down nav-chevron"></i></a>
+                    <a href="#">Услуги <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-chevron lucide lucide-chevron-down relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a>
                     <ul class="nav-dropdown">
                         <li><a href="pages/design.html">Проектирование</a></li>
                         <li><a href="pages/supply.html">Поставка и логистика</a></li>
@@ -63,7 +63,7 @@
                     </ul>
                 </li>
                 <li class="nav-item has-dropdown">
-                    <a href="#">О нас <i class="fas fa-chevron-down nav-chevron"></i></a>
+                    <a href="#">О нас <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-chevron lucide lucide-chevron-down relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a>
                     <ul class="nav-dropdown">
                         <li><a href="pages/about.html">О компании</a></li>
                         <li><a href="pages/contacts.html">Контакты</a></li>
@@ -191,11 +191,8 @@
         <aside class="charity-detail__sidebar">
           <div class="charity-detail__card">
             <h3>Поддержать проект</h3>
-            <input class="charity-detail__input" type="text" placeholder="Ваше имя *" required>
-            <input class="charity-detail__input" type="email" placeholder="Email *" required>
-            <input class="charity-detail__input" type="number" placeholder="Сумма пожертвования (USD) *" min="1" required>
-            <textarea class="charity-detail__textarea" placeholder="Сообщение (необязательно)"></textarea>
-            <button class="charity-detail__button" type="button">Отправить заявку</button>
+            <p class="charity-detail__donate-text">Нажмите кнопку ниже, чтобы получить реквизиты и подтвердить перевод.</p>
+            <button class="charity-detail__button charity-detail__button--donate" type="button" data-donate-open>Поддержать проект</button>
           </div>
 
           <div class="charity-detail__card">
@@ -210,6 +207,41 @@
         </aside>
       </div>
     </section>
+
+  <div class="donation-modal" id="donationModal" aria-hidden="true">
+    <div class="donation-modal__backdrop" data-donate-close></div>
+    <div class="donation-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="donationModalTitle">
+      <button class="donation-modal__close" type="button" aria-label="Закрыть" data-donate-close>×</button>
+      <h3 class="donation-modal__title" id="donationModalTitle">Реквизиты для перевода</h3>
+
+      <div class="donation-modal__bank">
+        <div class="donation-modal__row"><span>Банк:</span><strong>Сбербанк России</strong></div>
+        <div class="donation-modal__row"><span>Получатель:</span><strong>Благотворительный фонд LUXTECH</strong></div>
+        <div class="donation-modal__row"><span>Счёт / IBAN:</span><strong>40817810099910004312</strong></div>
+        <div class="donation-modal__row"><span>SWIFT:</span><strong>SABRRUMM</strong></div>
+      </div>
+
+      <form class="donation-modal__form" id="donationForm">
+        <h4>Подтвердите перевод</h4>
+        <input class="donation-modal__input" type="text" placeholder="Номер транзакции / чека *" required>
+        <input class="donation-modal__input" type="number" placeholder="Переведённая сумма (USD) *" min="1" required>
+        <button class="donation-modal__submit" type="submit">Подтвердить перевод</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="donation-modal donation-modal--success" id="donationSuccessModal" aria-hidden="true">
+    <div class="donation-modal__backdrop" data-success-close></div>
+    <div class="donation-modal__dialog donation-modal__dialog--success" role="dialog" aria-modal="true" aria-labelledby="donationSuccessTitle">
+      <button class="donation-modal__close" type="button" aria-label="Закрыть" data-success-close>×</button>
+      <div class="donation-modal__success-icon">✓</div>
+      <h3 class="donation-modal__title" id="donationSuccessTitle">Спасибо за поддержку!</h3>
+      <p class="donation-modal__success-text">Ваш перевод получен и находится на проверке. Подтверждение может занять некоторое время.</p>
+      <p class="donation-modal__success-text">После верификации информация о сборе и прогресс-бар обновятся на сайте. Вы получите уведомление на указанный email.</p>
+      <button class="donation-modal__submit donation-modal__submit--close" type="button" data-success-close>Закрыть</button>
+    </div>
+  </div>
+
   </main>
 
 <footer>

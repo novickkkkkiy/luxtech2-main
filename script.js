@@ -480,83 +480,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// ============ about.html (partners modal) ============
+// ============ charity detail donation modals ============
 document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('partnersModal');
-    if (!modal) {
+    const donationModal = document.getElementById('donationModal');
+    const successModal = document.getElementById('donationSuccessModal');
+    const openBtn = document.querySelector('[data-donate-open]');
+    const donationForm = document.getElementById('donationForm');
+
+    if (!donationModal || !successModal || !openBtn || !donationForm) {
         return;
     }
 
-    const title = document.getElementById('partnersModalTitle');
-    const content = document.getElementById('partnersModalContent');
-    const triggers = Array.from(document.querySelectorAll('.about-partners__logo[data-partner]'));
-    const closeControls = Array.from(modal.querySelectorAll('[data-partner-close]'));
+    const donationCloseControls = Array.from(donationModal.querySelectorAll('[data-donate-close]'));
+    const successCloseControls = Array.from(successModal.querySelectorAll('[data-success-close]'));
 
-    if (!title || !content || !triggers.length) {
-        return;
-    }
-
-    const partnerData = {
-        zeon: {
-            title: 'ZEON Lighting',
-            paragraphs: [
-                'Основанная в начале 2000 годов группа компаний ZEON Lighting обладает обширным опытом в разработке профессионального светового оборудования.',
-                'Производство продукции европейского качества позволяет компании ZEON Lighting удерживать сильные позиции на светотехническом рынке России. БС ГРУП является стратегическим партнером в разработке и продвижении продукции данного производителя.'
-            ]
-        },
-        img: {
-            title: 'IMG-LIGHTING',
-            paragraphs: [
-                'IMG-LIGHTING - профессиональный производитель светотехнической продукции и специальных решений для архитектурного, дорожного, промышленного и ландшафтного освещения.',
-                'Компания имеет собственный инженерный центр, производственные площадки в России и Китае. Совместно с лучшими конструкторами компании БС ГРУП реализовано огромное количество сложных объектов в странах ЕАЭС.'
-            ]
-        },
-        mdm: {
-            title: 'МДМ - ЛАЙТ',
-            paragraphs: [
-                'МДМ - ЛАЙТ - производитель современных осветительных решений для коммерческих и общественных пространств.',
-                'Компания является одним из лучших производителей светодиодной продукции на современном рынке светотехники в России. Благодаря высокому качеству и доступной цене товары зарекомендовали себя как надежные и востребованные, а бренд уже несколько лет занимает лидирующие позиции в странах ЕАЭС.'
-            ]
-        }
-    };
-
-    const openModal = (key) => {
-        const data = partnerData[key];
-        if (!data) {
-            return;
-        }
-
-        title.textContent = data.title;
-        content.innerHTML = data.paragraphs.map((text) => `<p>${text}</p>`).join('');
-        modal.classList.add('is-open');
-        modal.setAttribute('aria-hidden', 'false');
+    const openDonationModal = () => {
+        donationModal.classList.add('is-open');
+        donationModal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('overflow-hidden');
     };
 
-    const closeModal = () => {
-        modal.classList.remove('is-open');
-        modal.setAttribute('aria-hidden', 'true');
+    const closeDonationModal = () => {
+        donationModal.classList.remove('is-open');
+        donationModal.setAttribute('aria-hidden', 'true');
+    };
+
+    const openSuccessModal = () => {
+        successModal.classList.add('is-open');
+        successModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('overflow-hidden');
+    };
+
+    const closeSuccessModal = () => {
+        successModal.classList.remove('is-open');
+        successModal.setAttribute('aria-hidden', 'true');
         document.body.classList.remove('overflow-hidden');
     };
 
-    triggers.forEach((trigger) => {
-        const key = trigger.getAttribute('data-partner');
-        trigger.addEventListener('click', () => openModal(key));
-        trigger.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                openModal(key);
-            }
-        });
+    openBtn.addEventListener('click', openDonationModal);
+
+    donationCloseControls.forEach((el) => {
+        el.addEventListener('click', closeDonationModal);
     });
 
-    closeControls.forEach((control) => {
-        control.addEventListener('click', closeModal);
+    successCloseControls.forEach((el) => {
+        el.addEventListener('click', closeSuccessModal);
+    });
+
+    donationForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        closeDonationModal();
+        openSuccessModal();
+        donationForm.reset();
     });
 
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
-            closeModal();
+        if (event.key !== 'Escape') return;
+        if (donationModal.classList.contains('is-open')) {
+            closeDonationModal();
+            document.body.classList.remove('overflow-hidden');
+        }
+        if (successModal.classList.contains('is-open')) {
+            closeSuccessModal();
         }
     });
 });

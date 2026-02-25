@@ -545,3 +545,66 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// ============ certificate image modal ============
+document.addEventListener('DOMContentLoaded', () => {
+    const certImages = Array.from(document.querySelectorAll('.diodus-cert__image, .about-partners__cert-img'));
+    if (!certImages.length) {
+        return;
+    }
+
+    const modal = document.createElement('div');
+    modal.className = 'cert-modal';
+    modal.setAttribute('aria-hidden', 'true');
+    modal.innerHTML = `
+        <div class="cert-modal__backdrop" data-cert-close></div>
+        <div class="cert-modal__dialog" role="dialog" aria-modal="true" aria-label="Просмотр сертификата">
+            <button class="cert-modal__close" type="button" aria-label="Закрыть" data-cert-close>×</button>
+            <img class="cert-modal__image" alt="Сертификат">
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    const modalImage = modal.querySelector('.cert-modal__image');
+    const closeControls = Array.from(modal.querySelectorAll('[data-cert-close]'));
+
+    const openModal = (src, alt) => {
+        if (!modalImage) return;
+        modalImage.src = src;
+        modalImage.alt = alt || 'Сертификат';
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('overflow-hidden');
+    };
+
+    const closeModal = () => {
+        if (!modalImage) return;
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        modalImage.src = '';
+        document.body.classList.remove('overflow-hidden');
+    };
+
+    certImages.forEach((img) => {
+        img.setAttribute('role', 'button');
+        img.setAttribute('tabindex', '0');
+        img.addEventListener('click', () => openModal(img.src, img.alt));
+        img.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openModal(img.src, img.alt);
+            }
+        });
+    });
+
+    closeControls.forEach((control) => {
+        control.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+            closeModal();
+        }
+    });
+});

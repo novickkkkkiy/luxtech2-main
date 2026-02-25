@@ -180,6 +180,10 @@ textarea {
     background: var(--secondary);
     color: white;
 }
+.btn-violet {
+    background: #AC7388;
+    color: white;
+}
 
 .btn-orange:hover {
     background: #d97706;
@@ -1350,7 +1354,7 @@ display: flex;
 .diodus-brand span {
     width: 32px;
     height: 32px;
-    background: var(--secondary);
+    background: #AC7388;
     color: white;
     border-radius: 6px;
     display: flex;
@@ -1374,7 +1378,7 @@ display: flex;
 }
 
 .feature h4 i {
-    color: var(--secondary);
+    color: #AC7388;
 }
 
 .feature p {
@@ -8542,7 +8546,7 @@ padding: 40px 20px;
 
 .diodus-why__eyebrow {
     display: inline-block;
-    color: #f59e0b;
+    color: #AC7388;
     font-weight: 700;
     font-size: 12px;
     letter-spacing: 1px;
@@ -8577,8 +8581,8 @@ padding: 40px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(245, 158, 11, 0.15);
-    color: #f59e0b;
+    background: rgba(213, 197, 203, 0.67);
+    color: #AC7388;
     font-size: 20px;
 }
 
@@ -8604,7 +8608,7 @@ padding: 40px 20px;
 
 .diodus-lines__eyebrow {
     display: inline-block;
-    color: #f59e0b;
+    color: #AC7388;
     font-weight: 700;
     font-size: 12px;
     letter-spacing: 1px;
@@ -8666,8 +8670,8 @@ padding: 40px 20px;
 }
 
 .diodus-lines__tags span {
-    background: rgba(245, 158, 11, 0.15);
-    color: #b45309;
+    background: rgba(213, 197, 203, 0.67);
+    color: #AC7388;
     font-size: 12px;
     font-weight: 600;
     padding: 6px 10px;
@@ -8687,7 +8691,7 @@ padding: 40px 20px;
 
 .diodus-cert__eyebrow {
     display: inline-block;
-    color: #f59e0b;
+    color: #AC7388;
     font-weight: 700;
     font-size: 12px;
     letter-spacing: 1px;
@@ -8748,7 +8752,7 @@ padding: 40px 20px;
 }
 
 .diodus-cta {
-    background: linear-gradient(135deg, #f59e0b, #f97316);
+    background: #AC7388;
     padding: 70px 0;
     color: #ffffff;
 }
@@ -8775,7 +8779,7 @@ padding: 40px 20px;
     padding: 14px 28px;
     border-radius: 14px;
     background: #ffffff;
-    color: #b45309;
+    color: #AC7388;
     font-weight: 700;
 }
 
@@ -9584,8 +9588,98 @@ padding: 40px 20px;
     background: white;
 }
 .diodus-cert__title-modification{
-    color: black;
+    color: white;
 }
 .diodus-cert__eyebrow-modification{
     color: var(--primary);
+}
+
+@media (min-width: 1024px) {
+    .luxbrand-showcase-grid > :first-child {
+        order: 2;
+    }
+
+    .luxbrand-showcase-grid > :last-child {
+        order: 1;
+    }
+}
+
+.diodus-cert__image,
+.about-partners__cert-img {
+    cursor: zoom-in;
+}
+
+.cert-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1600;
+    display: none;
+}
+
+.cert-modal.is-open {
+    display: block;
+}
+
+.cert-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 22, 40, 0.72);
+    backdrop-filter: blur(2px);
+}
+
+.cert-modal__dialog {
+    position: relative;
+    max-width: min(92vw, 1000px);
+    max-height: 88vh;
+    margin: 6vh auto;
+    padding: 14px;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+}
+
+.cert-modal__image {
+    display: block;
+    width: 100%;
+    max-height: calc(88vh - 28px);
+    object-fit: contain;
+    border-radius: 12px;
+    background: #f8fafc;
+}
+
+.cert-modal__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 999px;
+    background: rgba(10, 22, 40, 0.88);
+    color: #fff;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.cert-modal__close:hover {
+    background: #0a1628;
+}
+
+@media (max-width: 768px) {
+    .cert-modal__dialog {
+        max-width: 94vw;
+        max-height: 90vh;
+        margin: 5vh auto;
+        padding: 10px;
+        border-radius: 14px;
+    }
+
+    .cert-modal__image {
+        max-height: calc(90vh - 20px);
+        border-radius: 10px;
+    }
+}
+.сolor-luxbrand{
+    color: var(--secondary);
 }

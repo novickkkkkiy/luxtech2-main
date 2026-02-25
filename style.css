@@ -2058,6 +2058,22 @@ footer {
         padding: 120px 0 60px;
     }
 
+    .hero-grid {
+        grid-template-columns: 1fr;
+        margin-bottom: 36px;
+    }
+
+    .hero-grid > div:last-child {
+        display: none;
+    }
+
+    .hero-blocks {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .hero h1 {
         font-size: 32px;
         line-height: 1.2;
@@ -2065,10 +2081,27 @@ footer {
 
     .hero p {
         font-size: 16px;
+        max-width: 360px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-actions {
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 48px;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .hero-badge {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .search-box {
@@ -9371,6 +9404,73 @@ padding: 40px 20px;
     .lg\:flex-row { flex-direction: row; }
     .lg\:items-end { align-items: flex-end; }
     .lg\:justify-between { justify-content: space-between; }
+}
+
+@media (max-width: 768px) {
+    .about-hero .container,
+    .contact-hero__content,
+    .blog-hero__content,
+    .charity-hero__content,
+    .design-hero__content,
+    .light-hero__content,
+    .luxbrand-hero__content,
+    .diodus-hero__content,
+    .logistics-hero__content,
+    .projects-hero__content,
+    .project-detail__hero-content,
+    .charity-detail-hero__content,
+    .blog-detail-hero__content,
+    .partner-hero .container {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about-hero__title,
+    .about-hero__text,
+    .contact-hero__title,
+    .contact-hero__text,
+    .blog-hero__title,
+    .blog-hero__text,
+    .charity-hero__title,
+    .charity-hero__text,
+    .design-hero__title,
+    .design-hero__text,
+    .light-hero__title,
+    .light-hero__text,
+    .luxbrand-hero__title,
+    .luxbrand-hero__text,
+    .diodus-hero__title,
+    .diodus-hero__text,
+    .logistics-hero__title,
+    .logistics-hero__text,
+    .projects-hero__title,
+    .projects-hero__text,
+    .partner-hero h1,
+    .partner-hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about-hero__breadcrumbs,
+    .contact-hero__breadcrumbs,
+    .blog-hero__breadcrumbs,
+    .light-hero__breadcrumbs,
+    .design-hero__crumbs,
+    .logistics-hero__crumbs,
+    .project-detail__crumbs,
+    .charity-detail-hero__breadcrumbs,
+    .blog-detail-hero__breadcrumbs,
+    .partner-hero__crumbs {
+        justify-content: center;
+    }
+
+    .diodus-hero__actions,
+    .projects-hero__actions,
+    .blog-detail-hero__meta,
+    .charity-detail-hero__meta {
+        justify-content: center;
+    }
 }
 
 /* ===================================
